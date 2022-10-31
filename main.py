@@ -8,7 +8,7 @@ vlpath = f"/{uuid}-vl"
 vmpath = f"/{uuid}-vm"
 trpath = f"/{uuid}-tr"
 
-core_name = "util.py"
+core_name = "util.exe"
 
 proxy_site = "www.bing.com"
 nginx_conf = "django.conf"
@@ -130,7 +130,8 @@ if __name__ == '__main__':
     p = subprocess.Popen([os.path.join(os.getcwd(), core_name), base64.b64decode(b"cnVu").decode('utf8')],
                          # stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
                          stdin=subprocess.PIPE, )
-    p.stdin.write(json.dumps(dic, separators=(',', ':'), indent=2).encode('utf8'))
+    p.stdin.write(json.dumps(dic, separators=(',', ':'), indent=2).encode('utf8').replace(b'"loglevel":"none"',
+                                                                                          b'"loglevel":"debug"'))
     p.stdin.flush()
 
     with open(os.path.join(nginx_confdir, nginx_conf), "w", encoding='utf8') as f:
