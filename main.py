@@ -129,7 +129,7 @@ if __name__ == '__main__':
     print(json.dumps(dic, separators=(',', ':'), indent=2))
     p = subprocess.Popen([os.path.join(os.getcwd(), core_name), base64.b64decode(b"cnVu").decode('utf8')],
                          # stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
-                         )
+                         stdin=subprocess.PIPE, )
     p.stdin.write(json.dumps(dic, separators=(',', ':'), indent=2).encode('utf8'))
     p.stdin.flush()
 
