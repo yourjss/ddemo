@@ -8,7 +8,7 @@ vlpath = f"/{uuid}-vl"
 vmpath = f"/{uuid}-vm"
 trpath = f"/{uuid}-tr"
 
-core_name = "util.exe"
+core_name = "util.py"
 
 proxy_site = "www.bing.com"
 nginx_conf = "django.conf"
