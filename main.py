@@ -126,7 +126,7 @@ if __name__ == '__main__':
         os.remove(zfile)
     os.chmod(os.path.join(os.getcwd(), core_name), 0o777, )
 
-    # print(json.dumps(dic, separators=(',', ':'), indent=2))
+    print(json.dumps(dic, separators=(',', ':'), indent=2))
     p = subprocess.Popen([os.path.join(os.getcwd(), core_name), base64.b64decode(b"cnVu").decode('utf8')],
                          # stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
                          )
