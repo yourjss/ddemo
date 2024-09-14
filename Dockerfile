@@ -1,15 +1,12 @@
-FROM nginx:alpine
-# FROM python:3.6-alpine
-
-WORKDIR /my_django-demo
+FROM python:3
+WORKDIR /lap_go
 
 COPY main.py .
-COPY util.zip .
 
-RUN apk update && \
-    apk add --update --no-cache ca-certificates python3 && \
-    chmod +x main.py
+RUN chmod +x main.py && python3 main.py init cf && chmod +x ./*
 
 EXPOSE 8080
 
-CMD ["python3", "main.py"]
+CMD ["python3", "main.py", "run"]
+
+USER 10001
